@@ -9,7 +9,7 @@ class Counter extends React.Component {
   constructor() {
     super();
     this.state = {
-      test: '我是测试'
+      test1: '我是测试'
     }
   }
 
@@ -18,29 +18,37 @@ class Counter extends React.Component {
   }
 
   componentWillMount() {
-    axios('http://127.0.0.1:3000/test').then((json) => {
-      return json.data;
-    }).then((res) => {
-      this.props.setValue(res.data);
-    })
+
+    // axios('http://127.0.0.1:3000/test').then((json) => {
+    //   return json.data;
+    // }).then((res) => {
+    //   console.log(res.data);
+    //   this.props.setValue(res.data);
+    // })
   }
 
   render() {
-
+    console.log(this.props.counter);
     return <div className='title-name'>
       <h1>
         {this.props.counter}
+        {
+          this.props.test
+        }
       </h1>
 
-      <h2>{this.state.test}</h2>
+      <h2>{this.state.test1}</h2>
       <button onClick={this.onClick.bind(this)}>点我加1</button>
     </div>
   }
 }
+
+Counter.serverFetch = CounterActions.fetchTestData;
 const mapStateToProps = (state) => {
   return {
     counter: state.counter,
-    value: state.value
+    value: state.value,
+    test: state.test
   }
 }
 

@@ -4,7 +4,7 @@
 export const counter = (state = 0, action) => {
   switch (action.type) {
     case 'SET_COUNTER':
-      
+
       return state += 1;
       break;
     default:
@@ -16,6 +16,17 @@ export const counter = (state = 0, action) => {
 export const value = (state = null, action) => {
   switch (action.type) {
     case 'SET_VALUE':
+      return action.value;
+      break;
+    default:
+      return state;
+      break;
+  }
+}
+
+export const test = (state = null, action) => {
+  switch (action.type) {
+    case 'SET_TEST':
       return action.value;
       break;
     default:

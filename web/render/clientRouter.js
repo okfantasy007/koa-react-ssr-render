@@ -9,6 +9,7 @@ let initStore = window.__INIT_STORE__;
 let store = configStore(initStore);
 
 function ClientRender() {
+  console.log("client store:" + store);
   return (
     <Provider store={store}>
       <BrowserRouter >
